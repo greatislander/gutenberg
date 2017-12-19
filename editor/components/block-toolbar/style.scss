@@ -40,6 +40,10 @@
 		padding: 0 5px;
 		align-items: stretch;
 	}
+
+	.dashicon {
+		transform: rotate( 90deg );
+	}
 }
 
 .editor-block-toolbar__mobile-tools-content {
