@@ -14,9 +14,10 @@ cd "$(dirname "$0")/../"
 # Setup local environement
 ( ./bin/setup-local-env.sh )
 
-# Install and activate theme
+# Activate theme
 if [ "$THEME" != "twentynineteen" ]; then
-	docker-compose $DOCKER_COMPOSE_FILE_OPTIONS run -T --rm cli theme install $THEME --activate
+	docker-compose $DOCKER_COMPOSE_FILE_OPTIONS run -T --rm cli theme activate $THEME
+	# TODO Install and activate theme
 fi
 
 # Get theme name
@@ -24,8 +25,8 @@ THEME_NAME=$(docker-compose $DOCKER_COMPOSE_FILE_OPTIONS run -T --rm cli theme g
 
 if [ "$E2E_ROLE" = "author" ]; then
 	echo "Testing $THEME_NAME...\n"
-	# WP_PASSWORD=authpass WP_USERNAME=author npm run test-theme
+	WP_PASSWORD=authpass WP_USERNAME=author npm run test-theme
 else
 	echo "Testing $THEME_NAME...\n"
-	# npm run test-theme
+	npm run test-theme
 fi

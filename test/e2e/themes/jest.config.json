@@ -1,0 +1,7 @@
+{
+	"rootDir": "../../../",
+	"preset": "jest-puppeteer",
+	"testMatch": [
+		"<rootDir>/test/e2e/themes/**/(*.)test.js"
+	]
+}
